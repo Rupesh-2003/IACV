@@ -1,4 +1,4 @@
-# TechSurf Submission
+# Computer Vision Project
 
 ## Problem Statement: &nbsp;&nbsp; Digital Asset Management
 
@@ -18,7 +18,7 @@ Developed a Full Stack Application on DAM which allows users to auto tag the ima
 
   - facebook/detr-resnet-101
   - nlpconnect/vit-gpt2-image-captioning
-  - sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  - sentence-transformers/all-MiniLM-L6-v2
   
 
 </p>
@@ -56,28 +56,5 @@ Developed a Full Stack Application on DAM which allows users to auto tag the ima
 1. cd backend
 2. pip install -r requirements.txt (pip/pip3) depending on your system
 3. python3 main.py
-
-
-## <span>👔<span/>&nbsp;&nbsp;  Candidate Details
-
-<p>
-  <p>Name: Rupesh Raut</p>
-  <p>Graduation year: 2025</p>
-  <p>Contact: </p>
-  <p>
-    <a href="https://www.linkedin.com/in/rupesh-raut-2003/">
-      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/linkedin.png?raw=true" alt="Rupesh Raut | LinkedIn">
-    </a>&nbsp;&nbsp;
-    <a href="https://twitter.com/rupeshraut2003">
-      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/twitter.png?raw=true" alt="Rupesh | Twitter">
-    </a>&nbsp;&nbsp;
-    <a href="https://www.behance.net/rupeshraut">
-      <img height="30" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="Rupesh | Behance">
-    </a>&nbsp;&nbsp;
-    <a href="mailto:rupeshraut99396@gmail.com">
-      <img height="32" src="https://user-images.githubusercontent.com/29790345/184528214-8f168ffd-5a4c-4d30-8d6b-917568924fbb.png?raw=true" alt="Rupesh | Mail">
-     </a>&nbsp;&nbsp;
-  </p>
-</p>
 
 <h2 align="center">Thank You!</h2>
