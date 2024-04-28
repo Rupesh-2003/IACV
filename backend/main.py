@@ -66,11 +66,11 @@ def get_image_tags():
     return {"error": False, "data": image_responses}, 200
 
 def query_detr_model(data):
-    response = requests.post(DETR_API_URL, headers=HEADERS, data=data)
+    response = requests.post(DETR_API_URL, headers=HEADERS, data=data, json={"parameters": {"wait_for_model": True}})
     return response.json()
 
 def query_gpt2_image_captioning(data):
-    response = requests.post(GPT2_IMAGE_CAPTIONING_API_URL, headers=HEADERS, data=data)
+    response = requests.post(GPT2_IMAGE_CAPTIONING_API_URL, headers=HEADERS, data=data, json={"parameters": {"wait_for_model": True}})
     return response.json()[0]['generated_text']
 
 
@@ -294,7 +294,8 @@ def search_image():
     payload = {
         "inputs": {
             "source_sentence": query,
-            "sentences": [image["taggings"] for image in response]
+            "sentences": [image["taggings"] for image in response],
+            "parameters": {"wait_for_model": True}
         },
     }
 
