@@ -74,11 +74,19 @@ def query_gpt2_image_captioning(data):
     return response.json()[0]['generated_text']
 
 
-def compress_image(img, quality, format):
+def compress_image(img, desired_size, format):
     try:
         img = img.convert("RGB")
         output_buffer = io.BytesIO()
-        img.save(output_buffer, format=format, quality=quality)
+        
+        width, height = img.size
+        scale_factor = desired_size / max(width, height)
+
+        new_width = int(width * scale_factor)
+        new_height = int(height * scale_factor)
+        img = img.resize((new_width, new_height))
+
+        img.save(output_buffer, format=format)
         output_buffer.seek(0)
         return output_buffer
 
@@ -89,17 +97,16 @@ def compress_image(img, quality, format):
 @app.route('/compressImage', methods=['POST'])
 def compress_image_route():
     try:
-        quality = int(request.form['quality']) - 15
+        quality = int(request.form['quality'])
         uploaded_file = request.files['image']
+        desired_size = int(request.form['desired_size'])
         if not uploaded_file:
             return "No image uploaded", 400
 
         image = Image.open(uploaded_file)
 
-        # Determine the format of the uploaded image
         image_format = uploaded_file.filename.split('.')[-1].lower()
-
-        compressed_image_buffer = compress_image(image, quality, image_format)
+        compressed_image_buffer = compress_image(image, desired_size=desired_size, format=image_format)
 
         if compressed_image_buffer:
             response = send_file(
@@ -356,4 +363,4 @@ def ping():
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)

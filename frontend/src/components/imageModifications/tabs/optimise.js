@@ -32,6 +32,7 @@ const Optimise = (props) => {
         var formdata = new FormData();
         formdata.append("image", image, image.name);
         formdata.append("quality", (100 - optimisePercentage))
+        formdata.append("desired_size", Math.round((image.size - image.size*optimisePercentage/100)/1024))
 
         var requestOptions = {
         method: 'POST',
